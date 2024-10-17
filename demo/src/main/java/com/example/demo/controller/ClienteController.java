@@ -22,7 +22,12 @@ public class ClienteController {
 
     @GetMapping("cliente")
     public ResponseEntity<?> showAll(){
-        List<Clientes> clientes = clienteService.getClientes();
+        List<Clientes> clientes = null;
+        try{
+            clientes = clienteService.getClientes();
+        }catch (Exception e){
+            return new ResponseEntity<>(MessageResponse.builder().message("ok").object(clientes).build(), HttpStatus.OK);
+        }
         return new ResponseEntity<>(MessageResponse.builder().message("ok").object(clientes).build(), HttpStatus.OK);
     }
 
