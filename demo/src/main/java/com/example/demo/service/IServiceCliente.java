@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Clientes;
+import com.example.demo.dto.ClienteDto;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
@@ -10,4 +11,8 @@ public interface IServiceCliente {
 
 
     List<Clientes> getClientes();
+
+    Clientes save(ClienteDto clienteDto);
+
+    Clientes getNombre(Integer id);
 }
